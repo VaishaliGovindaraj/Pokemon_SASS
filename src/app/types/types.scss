@@ -1,0 +1,19 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.pokemon{
+    &__types{
+        @include flexrow;
+        @include page-layout($indent__l,auto);
+        flex-wrap: wrap;
+        gap: $indent__base;  
+    }
+
+    a{
+        display: inline-block;
+        flex: 0 0 150px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

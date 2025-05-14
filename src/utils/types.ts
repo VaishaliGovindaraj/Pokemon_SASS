@@ -4,3 +4,11 @@ export type HomeGridProps ={
     position: string,
     bgColor: string
 }
+
+export type PokemonType = {
+    id: number,
+    name: string,
+    image: string,
+    types: string [],
+ 
+}

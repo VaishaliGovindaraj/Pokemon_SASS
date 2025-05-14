@@ -84,8 +84,8 @@
     max-width: fit-content;
     height: 900px;
     max-height: fit-content;
-    padding: $indent__xxl;
-    margin:$indent__xxxl auto;
+    padding: $indent__s;
+    margin:$indent__m auto;
 
     &_featured {
         grid-area: featured;
@@ -107,8 +107,8 @@
 .grid_container {
 
     
-    padding: $indent__xxxl;
-    margin: $indent__xxxl;
+    padding: $indent__s;
+    margin: $indent__s;
     border: 1px solid gray;
     align-items: stretch;
     justify-content: stretch;
@@ -122,14 +122,14 @@
         width: 50%;
 
         @include responsive_desktop{
-            padding:$indent__xl;
+            padding:$indent__s;
             height:auto;
             width: 100%;
         }
     }
 
     &_title{
-        padding: $indent__xl;
+        padding: $indent__s;
         text-align: center;
     }
 
@@ -148,7 +148,7 @@
 }
 
 .footer{
-    padding: $indent__xxl;
+    padding: $indent__s;
     text-align: center;
     font-size: 1.5rem;
 
