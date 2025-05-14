@@ -1,0 +1,59 @@
+@mixin flexrow{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    padding: $indent__m;
+}
+
+@mixin page_layout($yaxis, $xaxis){
+    max-width: 1240px;
+    margin: $yaxis $xaxis;
+}
+
+@mixin link-style($accentColor: $color-gray){
+    border-bottom: 4px solid $accentColor;
+    font: {
+        family: $font-orbitron;
+        size: 1rem;
+        font-weight: 700;
+    }
+
+    color: $color-primary;
+    text-decoration: none;
+    padding: $indent__xl;
+
+    &:hover,
+    &.active {
+        background-color: $accentColor;
+    }
+}
+
+@mixin pokeNameBg($bgColor: $color-gray){
+    background-color: $bgColor;
+    border: 4px solid $bgColor;
+
+    font: {
+        family:$font-orbitron;
+        size:1rem;
+    }
+
+    @if $bgColor == #FF1F1F{
+        color: #F8FF1F;
+    }@else if $bgColor ==#FBD743 {
+        color:#363B81;
+    }@else if $bgColor == #60c981{
+        color: #f7f9fc;
+    }
+}
+
+@mixin responsive_tablet{
+    @media screen and (min-width: $breakpoint-tablet){
+        @content;
+    }
+}
+
+@mixin responsive_desktop{
+    @media screen and (min-width: $breakpoint-desktop){
+        @content;
+    }
+}

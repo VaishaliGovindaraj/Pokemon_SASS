@@ -1,0 +1,158 @@
+@import '../styles/variables';
+@import '../styles/mixins.scss';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.header {
+    @include flexrow;
+
+
+    gap: $indent__base;
+    padding: $indent__m;
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+    &__icon,
+    &__avatar {
+        width: 200px;
+
+        @include responsive_tablet {
+            display: block;
+            width: 150px;
+        }
+    }
+
+    &__logo {
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        // flex-grow: 1;
+
+        @include responsive_tablet {}
+    }
+}
+
+.nav_menu {
+    @include flexrow;
+    @include page_layout($indent__l, auto);
+    background-color: $background-primary;
+
+    &__links {
+        @include link-style;
+
+        &__home {
+            @include link-style($color-bright-sun);
+        }
+
+        &__pokemon {
+            @include link-style($color-malibu);
+        }
+
+        &__types {
+            @include link-style($color-minsk);
+        }
+
+        &__about {
+            @include link-style($color-bright-sun);
+        }
+    }
+}
+
+.container{
+    flex-grow: 1;
+    border: 2px solid gray;
+    margin: 0px 64px 0px 64px;
+}
+
+.pokemon_grid {
+    
+
+    @include responsive_desktop{
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+    grid-template-areas: ". . ."
+        "featured featured ."
+        "featured featured .";
+    justify-items: center;
+    align-items: center;
+    max-width: fit-content;
+    height: 900px;
+    max-height: fit-content;
+    padding: $indent__xxl;
+    margin:$indent__xxxl auto;
+
+    &_featured {
+        grid-area: featured;
+        display: flex;
+        flex-direction: column;
+        justify-items: space-between;
+        align-items: center;
+        margin:32px;
+    }}
+
+    &_reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+
+}
+
+.grid_container {
+
+    
+    padding: $indent__xxxl;
+    margin: $indent__xxxl;
+    border: 1px solid gray;
+    align-items: stretch;
+    justify-content: stretch;
+    
+    &:hover{
+        transform: translateY(10px);
+    }
+    
+    &_image{
+        height:auto;
+        width: 50%;
+
+        @include responsive_desktop{
+            padding:$indent__xl;
+            height:auto;
+            width: 100%;
+        }
+    }
+
+    &_title{
+        padding: $indent__xl;
+        text-align: center;
+    }
+
+    &_red {
+        @include pokeNameBg($color-torch-Red);
+    }
+
+    &_minsk {
+        @include pokeNameBg($color-minsk);
+    }
+
+    &_bright_sun {
+        @include pokeNameBg($color-bright-sun);
+    }   
+
+}
+
+.footer{
+    padding: $indent__xxl;
+    text-align: center;
+    font-size: 1.5rem;
+
+    &_content{
+        padding: $indent__xxxl;
+    }
+}
