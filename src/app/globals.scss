@@ -40,61 +40,66 @@
 
 .nav_menu {
     @include flexrow;
-    @include page_layout($indent__l, auto);
-    background-color: $background-primary;
+    @include page_layout($indent__s, auto);
 
-    &__links {
-        @include link-style;
+    // @include responsive_tablet {
+        @include page_layout($indent__l, auto);
+        background-color: $background-primary;
 
-        &__home {
-            @include link-style($color-bright-sun);
+        &__links {
+            @include link-style;
+
+            &__home {
+                @include link-style($color-bright-sun);
+            }
+
+            &__pokemon {
+                @include link-style($color-malibu);
+            }
+
+            &__types {
+                @include link-style($color-minsk);
+            }
+
+            &__about {
+                @include link-style($color-bright-sun);
+            }
         }
-
-        &__pokemon {
-            @include link-style($color-malibu);
-        }
-
-        &__types {
-            @include link-style($color-minsk);
-        }
-
-        &__about {
-            @include link-style($color-bright-sun);
-        }
-    }
+    // }
 }
 
-.container{
+.container {
     flex-grow: 1;
     border: 2px solid gray;
     margin: 0px 64px 0px 64px;
 }
 
 .pokemon_grid {
-    
 
-    @include responsive_desktop{
-    display: grid;
-    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-    grid-template-areas: ". . ."
-        "featured featured ."
-        "featured featured .";
-    justify-items: center;
-    align-items: center;
-    max-width: fit-content;
-    height: 900px;
-    max-height: fit-content;
-    padding: $indent__s;
-    margin:$indent__m auto;
 
-    &_featured {
-        grid-area: featured;
-        display: flex;
-        flex-direction: column;
-        justify-items: space-between;
+    @include responsive_desktop {
+        display: grid;
+        grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+        grid-template-areas: ". . ."
+            "featured featured ."
+            "featured featured .";
+        justify-items: center;
         align-items: center;
-        margin:32px;
-    }}
+        max-width: fit-content;
+        min-height: 900px;
+        max-height: fit-content;
+        padding: $indent__s;
+        margin: $indent__m auto;
+
+        &_featured {
+            grid-area: featured;
+            display: flex;
+            flex-direction: column;
+            justify-items: space-between;
+            align-items: center;
+            margin: 32px;
+        }
+    }
 
     &_reverse {
         display: flex;
@@ -106,29 +111,29 @@
 
 .grid_container {
 
-    
+
     padding: $indent__s;
     margin: $indent__s;
     border: 1px solid gray;
     align-items: stretch;
     justify-content: stretch;
-    
-    &:hover{
+
+    &:hover {
         transform: translateY(10px);
     }
-    
-    &_image{
-        height:auto;
+
+    &_image {
+        height: auto;
         width: 50%;
 
-        @include responsive_desktop{
-            padding:$indent__s;
-            height:auto;
+        @include responsive_desktop {
+            padding: $indent__s;
+            height: auto;
             width: 100%;
         }
     }
 
-    &_title{
+    &_title {
         padding: $indent__s;
         text-align: center;
     }
@@ -143,16 +148,16 @@
 
     &_bright_sun {
         @include pokeNameBg($color-bright-sun);
-    }   
+    }
 
 }
 
-.footer{
+.footer {
     padding: $indent__s;
     text-align: center;
     font-size: 1.5rem;
 
-    &_content{
+    &_content {
         padding: $indent__xxxl;
     }
 }
