@@ -12,20 +12,24 @@
 
 @mixin link-style($accentColor: $color-gray){
     border-bottom: 4px solid $accentColor;
+    color: $color-primary;
+    text-decoration: none;
+    padding: $indent__s;
+
     font: {
         family: $font-orbitron;
         size: 1rem;
         font-weight: 700;
     }
 
-    color: $color-primary;
-    text-decoration: none;
-    padding: $indent__xl;
-
     &:hover,
     &.active {
         background-color: $accentColor;
     }
+    @include responsive-tablet() {
+      padding: $indent__xl;
+    }
+   
 }
 
 @mixin pokeNameBg($bgColor: $color-gray){
