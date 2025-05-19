@@ -61,3 +61,10 @@ $colours: (
         @include buttton-style($value);
     }
 };
+
+@each $colour, $value in $colours{
+    .pokemon__names_#{$colour}{
+        @include buttton-style($value);
+		max-width: 150px;
+    }
+};

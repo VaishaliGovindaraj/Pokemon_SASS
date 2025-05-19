@@ -19,7 +19,7 @@ const Types = () => {
 
     return (
         <div className="pokemon__types">
-            {allTypes && allTypes.filter((item,index) => index < 18).map((item:string ,index:number) => <a href="" key ={index} className={`pokemon__content--${item}`}>{item}</a>)}
+            {allTypes && allTypes.filter((item,index) => index < 18).map((item:string ,index:number) => <a href={`/types/${item}`} key ={index} className={`pokemon__content--${item}`}>{item}</a>)}
         </div>
     )
 }

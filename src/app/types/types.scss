@@ -16,4 +16,12 @@
         text-transform: uppercase;
         text-align: center;
     }
+
+    &__names_div{
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indent__m;
+    
+    }
+
 }
