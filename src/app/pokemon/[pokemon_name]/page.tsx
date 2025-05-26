@@ -1,31 +1,30 @@
+
 'use client'
 // import Types from "@/app/types/page";
-// import { useRouter } from "next/navigation";
-import React from "react";
+import { use } from "react";
+import { useRouter } from "next/navigation";
 import DisplayPokemon from "@/components/DisplayPokemon";
 import { PokemonType } from "@/utils/types";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
-type PageProps = Promise<{pokemon_name: string}>;
+// interface PageProps {
 //   params: {
 //     pokemon_name: string;
 //   };
+// }
 
+type PageProps = Promise<{pokemon_name: string;}>;
 
 // const PokemonDetail =  ({params} : PageProps) => {
 
-export default async function PokemonDetail ({params} : {params: PageProps}){
-    const {pokemon_name} =  await params;
-    // const router = useRouter();
+export default function PokemonDetail ({params} : {params :PageProps}){
+    const {pokemon_name} =  use(params);
+    const router = useRouter();
 
     const [caughtPokemon, setCaughtPokemon] = useState<PokemonType | null>(null)
     // const [TypePage,setTypePage] = useState<boolean>(false);
 
-        useEffect( () => {
-        
-    
-        const fetchPokemon = async (): Promise<void> => {
+    const fetchPokemon = async (): Promise<void> => {
         try {
             const API_URL: string = "https://pokeapi.co/api/v2"
             const response = await fetch(`${API_URL}/pokemon/${pokemon_name}/`)
@@ -46,20 +45,21 @@ export default async function PokemonDetail ({params} : {params: PageProps}){
         }
     }
 
-      },[])
+    const handleClick = () => {
+        setCaughtPokemon(null);
+         router.push('/types');
+        // setTypePage(true);
+    }
 
-    // const handleClick = () => {
-    //     setCaughtPokemon(null);
-        
-    //     // setTypePage(true);
-    // }
-
-
+    useEffect( () => {
+        fetchPokemon();
+    },[])
+    
     return (
         <div className="pokemon_container">
             {caughtPokemon && <DisplayPokemon {...caughtPokemon}/>}
-            {/* { <button onClick={handleClick} className="pokemon_button"> Close</button>  } */}
-            <Link className="pokemon_button" href="/types">Close</Link>
+            { <button onClick={handleClick} className="pokemon_button"> Close</button>  }
+            
         </div>
     )
 }
