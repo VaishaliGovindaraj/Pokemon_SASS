@@ -5,7 +5,13 @@ import DisplayPokemon from "@/components/DisplayPokemon";
 import { PokemonType } from "@/utils/types";
 import { useEffect, useState } from "react";
 
-const PokemonDetail =  ({params} : {params: {pokemon_name: string}}) => {
+interface PageProps {
+  params: {
+    pokemon_name: string;
+  };
+}
+
+const PokemonDetail =  ({params} : PageProps) => {
     const {pokemon_name} =  params;
     const router = useRouter();
 
