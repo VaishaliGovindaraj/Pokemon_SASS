@@ -11,7 +11,9 @@ interface PageProps {
   };
 }
 
-const PokemonDetail =  ({params} : PageProps) => {
+// const PokemonDetail =  ({params} : PageProps) => {
+
+export default function PokemonDetail ({params} : PageProps){
     const {pokemon_name} =  params;
     const router = useRouter();
 
@@ -58,4 +60,3 @@ const PokemonDetail =  ({params} : PageProps) => {
     )
 }
 
-export default PokemonDetail;
