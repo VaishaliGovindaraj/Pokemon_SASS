@@ -1,4 +1,4 @@
-import '../types.scss';
+
 
 interface PokemonType {
     pokemon: {
@@ -12,7 +12,7 @@ type PageProps = Promise<{ type : string;}>;
 let data: PokemonType[];
 let API_ENDPOINT: string;
 
-
+import '../types.scss';
 const TypePage = async ({ params }: { params: PageProps}) => {
     const { type } = await params;
 
