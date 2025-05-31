@@ -13,11 +13,11 @@ import { useEffect, useState } from "react";
 //   };
 // }
 
-type PageProps = Promise<{pokemon_name: string;}>;
+type PageProps = Promise<{pokemon_name: string;}>;//1st way , assigning params to be PageProps
 
 // const PokemonDetail =  ({params} : PageProps) => {
 
-export default function PokemonDetail ({params} : {params :PageProps}){
+export default function PokemonDetail ({params} : {params :PageProps}){ //2nd way: declaring Promse type directly here
     const {pokemon_name} =  use(params);
     const router = useRouter();
 

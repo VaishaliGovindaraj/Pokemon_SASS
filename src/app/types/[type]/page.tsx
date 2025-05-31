@@ -6,14 +6,14 @@ interface PokemonType {
     }
 }
 
-type PageProps = Promise<{ type : string;}>;
+// type PageProps = Promise<{ type : string;}>; 1st way , assigning params to be PageProps
 
 
 let data: PokemonType[];
 let API_ENDPOINT: string;
 
 
-const TypePage = async ({ params }: { params: PageProps}) => {
+const TypePage = async ({ params }: { params:  Promise<{ type : string;}>}) => { //2nd way: declaring Promse type directly here
     const { type } = await params;
 
     try {
